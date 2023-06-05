@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Capstone</string>
+    <string name="home">Home</string>
+    <string name="under_home">Get Information About Fruit</string>
+    <string name="search">search...</string>
+    <string name="apple">APPLE</string>
 </resources>
