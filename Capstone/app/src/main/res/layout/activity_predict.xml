@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PredictActivity">
+
+    <TextView
+        android:id="@+id/txt_predict"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/predict"
+        android:textStyle="bold"
+        android:textSize="40sp"
+        android:textColor="#000000"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/img_predict"
+        android:layout_width="0dp"
+        android:layout_height="225dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        app:shapeAppearanceOverlay="@style/roundImageView"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/bg_item"
+        app:layout_constraintTop_toBottomOf="@+id/txt_predict"
+        app:layout_constraintStart_toStartOf="@id/txt_predict"
+        app:layout_constraintEnd_toEndOf="parent"/>
+    <TextView
+        android:id="@+id/txt_product_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/product_name"
+        android:padding="15dp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:textSize="22sp"
+        android:textAllCaps="true"
+        app:layout_constraintTop_toBottomOf="@id/img_predict"
+        app:layout_constraintStart_toStartOf="@id/img_predict"
+        app:layout_constraintEnd_toEndOf="@id/img_predict"/>
+    <ImageView
+        android:id="@+id/pemisah"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#000000"
+        app:layout_constraintTop_toBottomOf="@id/txt_product_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="35dp"
+        android:layout_marginEnd="35dp"/>
+    <ProgressBar
+        android:id="@+id/prog_predict"
+        android:layout_width="100dp"
+        android:layout_height="45dp"
+        app:layout_constraintTop_toBottomOf="@id/pemisah"
+        app:layout_constraintStart_toStartOf="@id/pemisah"
+        app:layout_constraintEnd_toEndOf="@id/pemisah"
+        android:indeterminateOnly="false"
+        android:progressDrawable="@drawable/bg_progress"
+        android:progressTint="#4CAF50"
+        android:progressBackgroundTint="#E0E0E0"
+        android:layout_marginTop="15dp"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"/>
+
+    <TextView
+        android:id="@+id/txt_prog_predict"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100%"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/prog_predict"
+        app:layout_constraintEnd_toEndOf="@+id/prog_predict"
+        app:layout_constraintStart_toStartOf="@+id/prog_predict"
+        app:layout_constraintTop_toTopOf="@+id/prog_predict" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_gallery"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_camera"
+        android:layout_marginTop="15dp"
+        android:text="@string/txt_gallery"
+        android:textSize="15sp"
+        android:textColor="#FFFFFF"
+        android:drawableStart="@drawable/baseline_photo_24"
+        android:paddingStart="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/prog_predict"
+        app:layout_constraintStart_toStartOf="@+id/prog_predict"
+        app:layout_constraintTop_toBottomOf="@id/prog_predict" />
+
+    <TextView
+        android:id="@+id/or"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/or"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        app:layout_constraintTop_toBottomOf="@id/btn_gallery"
+        app:layout_constraintStart_toStartOf="@id/btn_gallery"
+        app:layout_constraintEnd_toEndOf="@id/btn_gallery"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_camera"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_camera"
+        android:text="@string/txt_camera"
+        android:textSize="15sp"
+        android:textColor="#FFFFFF"
+        android:drawableStart="@drawable/baseline_photo_camera_24"
+        android:paddingStart="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/or"
+        app:layout_constraintStart_toStartOf="@+id/or"
+        app:layout_constraintTop_toBottomOf="@id/or" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_predict"
+        android:layout_width="265dp"
+        android:layout_height="wrap_content"
+        android:text="@string/predict"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp"
+        android:textAllCaps="false"
+        android:background="@drawable/bg_predict_btn"
+        android:layout_marginTop="25dp"
+        app:layout_constraintTop_toBottomOf="@id/btn_camera"
+        app:layout_constraintStart_toStartOf="@id/btn_camera"
+        app:layout_constraintEnd_toEndOf="@id/btn_camera"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

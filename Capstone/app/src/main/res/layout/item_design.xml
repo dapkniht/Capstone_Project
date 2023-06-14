@@ -1,34 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_gravity="center">
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/img_item"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:adjustViewBounds="true"
-        android:scaleType="fitCenter"
-        app:shapeAppearanceOverlay="@style/roundImageView"
-        android:background="@drawable/apple"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-    <TextView
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/apple"
-        android:gravity="bottom"
-        android:padding="5dp"
-        android:textSize="35sp"
-        android:textStyle="bold"
-        android:textColor="#EEEEEE"
-        android:background="@drawable/bg_text_item"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintStart_toStartOf="@id/img_item"
-        app:layout_constraintBottom_toBottomOf="@id/img_item"
-        />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:padding="5dp">
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/img_item_home"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/apple"
+            app:shapeAppearanceOverlay="@style/roundImageView"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+        <TextView
+            android:id="@+id/txt_item_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+            android:padding="5dp"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            android:textColor="#EEEEEE"
+            android:background="@drawable/bg_text_item"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintStart_toStartOf="@id/img_item_home"
+            app:layout_constraintBottom_toBottomOf="@id/img_item_home"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

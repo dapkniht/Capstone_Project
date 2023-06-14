@@ -4,4 +4,14 @@
     <string name="under_home">Get Information About Fruit</string>
     <string name="search">search...</string>
     <string name="apple">APPLE</string>
+    <string name="predict">Predict</string>
+    <string name="product_name">product name</string>
+    <string name="txt_gallery">Select from gallery</string>
+    <string name="txt_camera">Select from camera</string>
+    <string name="or">Or</string>
+    <string name="history">History</string>
+    <string name="ripeness">Ripeness Level : </string>
+    <string name="latin">Latin name</string>
+    <string name="fruit_desc">Fruit Description</string>
+    <string name="nutrient_table">Nutrient Table</string>
 </resources>
