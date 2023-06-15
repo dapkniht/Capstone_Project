@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
+        android:actionLayout="@layout/activity_main"
         android:id="@+id/action_item1"
-        android:title="Item 1"
+        android:title="@string/home"
         android:icon="@drawable/baseline_home_24" />
     <item
+        android:actionLayout="@layout/activity_predict"
         android:id="@+id/action_item2"
-        android:title="Item 2"
+        android:title="@string/predict"
         android:icon="@drawable/baseline_camera_alt_24" />
     <item
         android:id="@+id/action_item3"
-        android:title="Item 3"
+        android:title="@string/history"
         android:icon="@drawable/baseline_history_24" />
+    <item
+        android:id="@+id/action_item4"
+        android:title="@string/logout"
+        android:icon="@drawable/baseline_logout_24" />
 </menu>

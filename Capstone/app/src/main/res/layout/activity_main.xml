@@ -48,12 +48,4 @@
         app:layout_constraintEnd_toEndOf="@id/searchview"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_app_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:menu="@menu/main_menu"
-        android:background="@drawable/bg_bottom_nav"
-        app:layout_constraintBottom_toBottomOf="parent"/>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

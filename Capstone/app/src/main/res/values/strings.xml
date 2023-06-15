@@ -14,4 +14,12 @@
     <string name="latin">Latin name</string>
     <string name="fruit_desc">Fruit Description</string>
     <string name="nutrient_table">Nutrient Table</string>
+    <string name="fresh">FRESH</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="login">login</string>
+    <string name="register">register</string>
+    <string name="password">password</string>
+    <string name="hint">username / email</string>
+    <string name="logout">Logout</string>
 </resources>

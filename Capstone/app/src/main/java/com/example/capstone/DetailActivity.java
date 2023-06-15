@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide;
 import com.example.capstone.API.ApiConfig;
 import com.example.capstone.API.Data;
 import com.example.capstone.API.DetailResponse;
+import com.example.capstone.Preferences.SharedPreference;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +40,8 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     private void getData(String id) {
-        Call<DetailResponse> client = ApiConfig.getApiService().getDescription(id);
+        SharedPreference sharedPreference = new SharedPreference(this);
+        Call<DetailResponse> client = ApiConfig.getApiService().getDescription(sharedPreference.getKeyToken(),id);
         client.enqueue(new Callback<DetailResponse>() {
             @Override
             public void onResponse(Call<DetailResponse> call, Response<DetailResponse> response) {
