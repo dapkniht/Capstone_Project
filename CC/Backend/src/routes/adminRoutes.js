@@ -1,22 +1,34 @@
 const express = require("express");
 const verifyToken = require("../middleware/verifyToken");
+const verifyRole = require("../middleware/verifyRole");
 const adminController = require("../controllers/adminController");
 const validator = require("../middleware/validator");
 const multer = require("../middleware/multer");
 
 const adminRoutes = express.Router();
 
-//Get all admin
-adminRoutes.get("/admins", verifyToken, adminController.getAllAdmin);
+//Get all user
+adminRoutes.get(
+  "/admins",
+  verifyToken,
+  verifyRole("admin"),
+  adminController.getAllUser
+);
 
-//Delete admin by id
-adminRoutes.delete("/delete/:id", verifyToken, adminController.deleteAdminById);
+//Delete user by id
+adminRoutes.delete(
+  "/delete/:id",
+  verifyToken,
+  verifyRole("admin"),
+  adminController.deleteUserById
+);
 
 //Add new admin
 adminRoutes.post(
   "/add",
   validator.addAdmin,
   verifyToken,
+  verifyRole("admin"),
   adminController.addNewAdmin
 );
 
@@ -25,6 +37,7 @@ adminRoutes.put(
   "/edit",
   validator.editAdmin,
   verifyToken,
+  verifyRole("admin"),
   adminController.editAdminData
 );
 
@@ -34,6 +47,7 @@ adminRoutes.post(
   multer.single("image"),
   validator.addFruit,
   verifyToken,
+  verifyRole("admin"),
   adminController.addNewFruit
 );
 
@@ -42,6 +56,7 @@ adminRoutes.put(
   "/fruits/edit/:id",
   multer.single("image"),
   verifyToken,
+  verifyRole("admin"),
   adminController.editFruitById
 );
 
@@ -49,6 +64,7 @@ adminRoutes.put(
 adminRoutes.delete(
   "/fruits/delete/:id",
   verifyToken,
+  verifyRole("admin"),
   adminController.deleteFruitById
 );
 

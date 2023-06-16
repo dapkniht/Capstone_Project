@@ -5,6 +5,11 @@ userDocumentation.paths = {
     get: {
       tags: ["User"],
       summary: "get all fruits",
+      security: [
+        {
+          bearerAuth: [],
+        },
+      ],
       parameters: [
         {
           name: "name",
@@ -33,6 +38,11 @@ userDocumentation.paths = {
     get: {
       tags: ["User"],
       summary: "get fruits detail by id",
+      security: [
+        {
+          bearerAuth: [],
+        },
+      ],
       parameters: [
         {
           name: "id",
@@ -61,7 +71,12 @@ userDocumentation.paths = {
   "/user/predict": {
     post: {
       tags: ["User"],
-      summary: "prediction of fruit ripeness from images (Under Development)",
+      summary: "prediction of fruit ripeness from images",
+      security: [
+        {
+          bearerAuth: [],
+        },
+      ],
       requestBody: {
         content: {
           "multipart/form-data": {
@@ -81,6 +96,94 @@ userDocumentation.paths = {
       responses: {
         200: {
           message: "Success",
+          content: {
+            "application/json": {
+              schema: {
+                $ref: "#/components/schemas/predict",
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+  "/user/history": {
+    get: {
+      tags: ["User"],
+      summary: "get all fruit prediction results",
+      security: [
+        {
+          bearerAuth: [],
+        },
+      ],
+      responses: {
+        200: {
+          message: "Success",
+          content: {
+            "application/json": {
+              schema: {
+                $ref: "#/components/schemas/history",
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+  "/user/history/delete": {
+    delete: {
+      tags: ["User"],
+      summary: "delete all fruit prediction results",
+      security: [
+        {
+          bearerAuth: [],
+        },
+      ],
+      responses: {
+        200: {
+          message: "Success",
+          content: {
+            "application/json": {
+              schema: {
+                $ref: "#/components/schemas/deleteallhistory",
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+  "/user/history/delete/{id}": {
+    delete: {
+      tags: ["User"],
+      summary: "delete fruit prediction result by id",
+      security: [
+        {
+          bearerAuth: [],
+        },
+      ],
+      parameters: [
+        {
+          in: "path",
+          name: "id",
+          description:
+            "id of the ruit prediction result that wants to be deleted",
+          required: true,
+          schema: {
+            type: "string",
+          },
+        },
+      ],
+      responses: {
+        200: {
+          message: "Success",
+          content: {
+            "application/json": {
+              schema: {
+                $ref: "#/components/schemas/deletehistorybyid",
+              },
+            },
+          },
         },
       },
     },
@@ -141,6 +244,88 @@ userDocumentation.schemas = {
             vitamin_b12: "0 µg",
           },
         },
+      },
+    },
+  },
+  predict: {
+    type: "object",
+    properties: {
+      message: {
+        type: "string",
+        example: "Success",
+      },
+      data: {
+        type: "array",
+        example: {
+          fruit: "banana",
+          predict: "rotten",
+        },
+      },
+    },
+  },
+  history: {
+    type: "object",
+    properties: {
+      message: {
+        type: "string",
+        example: "Success",
+      },
+      data: {
+        type: "array",
+        example: [
+          {
+            id: "kSew3Xse42",
+            user_id: "msdEW4fer2",
+            name: "Apple",
+            predict: "fresh",
+            image:
+              "https://storage.googleapis.com/ready2eat-bucket/apple_158989157.jpg",
+          },
+        ],
+      },
+    },
+  },
+  deleteallhistory: {
+    type: "object",
+    properties: {
+      message: {
+        type: "string",
+        example: "Success",
+      },
+      data: {
+        type: "array",
+        example: [
+          {
+            id: "6DiZb6YNZv",
+            user_id: "3Kg0zz_6tf",
+            fruit: "banana",
+            predict: "fresh",
+            image:
+              "https://storage.googleapis.com/ready2eat-predict-bucket/1686831172295-274913498-banana.jpg",
+          },
+        ],
+      },
+    },
+  },
+  deletehistorybyid: {
+    type: "object",
+    properties: {
+      message: {
+        type: "string",
+        example: "Success",
+      },
+      data: {
+        type: "array",
+        example: [
+          {
+            id: "6DiZb6YNZv",
+            user_id: "3Kg0zz_6tf",
+            fruit: "banana",
+            predict: "fresh",
+            image:
+              "https://storage.googleapis.com/ready2eat-predict-bucket/1686831172295-274913498-banana.jpg",
+          },
+        ],
       },
     },
   },
