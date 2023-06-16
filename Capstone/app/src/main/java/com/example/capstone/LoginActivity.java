@@ -10,6 +10,7 @@ import android.webkit.CookieManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.capstone.API.ApiConfig;
 import com.example.capstone.API.LoginRequest;
@@ -43,6 +44,11 @@ public class LoginActivity extends AppCompatActivity {
         button = findViewById(R.id.btn_login);
         SharedPreference pref = new SharedPreference(getApplicationContext());
 
+        if (!pref.getKeyToken().isEmpty()) {
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(intent);
+        }
+
         CookieManager cookieManager = CookieManager.getInstance();
         cookieManager.setAcceptCookie(true);
         cookieManager.setCookie("https://ready2eat-backend-kkszfyhisa-et.a.run.app", "token");
@@ -72,6 +78,8 @@ public class LoginActivity extends AppCompatActivity {
                                 pref.setKeyToken("Bearer " + response.body().getData().getAccessToken());
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                 startActivity(intent);
+                            }else {
+                                Toast.makeText(LoginActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                             }
                         } else {
                             if (response.body() != null) {

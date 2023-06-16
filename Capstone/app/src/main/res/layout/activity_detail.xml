@@ -73,13 +73,96 @@
                 android:textStyle="bold"
                 android:textColor="#263238"
                 android:textSize="25sp"/>
-            <TextView
-                android:id="@+id/txt_detail_nutrient_table"
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="lorem ipsum"
-                android:textColor="#263238"
-                android:textSize="15sp"/>
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Potassium"
+                    android:textColor="#263238"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:layout_weight="1"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=":"
+                    android:textColor="#263238"
+                    android:textSize="15sp"
+                    android:layout_weight="1"
+                    android:gravity="center"/>
+                <TextView
+                    android:id="@+id/txt_detail_nutrient_table"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="lorem ipsum"
+                    android:textColor="#263238"
+                    android:textSize="15sp"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Calcium"
+                    android:textColor="#263238"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:layout_weight="1"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=":"
+                    android:textColor="#263238"
+                    android:textSize="15sp"
+                    android:layout_weight="1"
+                    android:gravity="center"/>
+                <TextView
+                    android:id="@+id/txt_detail_nutrient_table_calcium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="lorem ipsum"
+                    android:textColor="#263238"
+                    android:textSize="15sp"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Vitamin C"
+                    android:textColor="#263238"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:layout_weight="1"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=":"
+                    android:textColor="#263238"
+                    android:textSize="15sp"
+                    android:layout_weight="1"
+                    android:gravity="center"/>
+                <TextView
+                    android:id="@+id/txt_detail_nutrient_table_vitaminc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="lorem ipsum"
+                    android:textColor="#263238"
+                    android:textSize="15sp"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+
         </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

@@ -50,4 +50,9 @@ public interface ApiService {
     Call<HistoryResponse> getHistory(
             @Header("Authorization") String token
     );
+
+    @POST("auth/register")
+    Call<RegisterResponse> getRegister(
+            @Body LoginRequest request
+    );
 }

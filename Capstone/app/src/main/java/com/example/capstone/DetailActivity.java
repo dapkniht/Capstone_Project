@@ -2,8 +2,12 @@ package com.example.capstone;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -22,7 +26,7 @@ import retrofit2.Response;
 
 public class DetailActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
-    TextView fruitName, latinName, desc, nutrient;
+    TextView fruitName, latinName, desc, nutrient, calcium, vitaminc;
     ImageView img;
 
     @Override
@@ -35,6 +39,8 @@ public class DetailActivity extends AppCompatActivity {
         desc = findViewById(R.id.txt_detail_desc);
         nutrient = findViewById(R.id.txt_detail_nutrient_table);
         img = findViewById(R.id.img_detail);
+        calcium = findViewById(R.id.txt_detail_nutrient_table_calcium);
+        vitaminc = findViewById(R.id.txt_detail_nutrient_table_vitaminc);
 
         getData(getIntent().getStringExtra("id"));
     }
@@ -53,7 +59,9 @@ public class DetailActivity extends AppCompatActivity {
                         Glide.with(getApplicationContext()).
                                 load(response.body().getData().getImage()).
                                 into(img);
-                        nutrient.setText(response.body().getData().getDescription());
+                        nutrient.setText(response.body().getData().getPotassium());
+                        calcium.setText(response.body().getData().getCalcium());
+                        vitaminc.setText(response.body().getData().getVitaminC());
                     }
                 } else {
                     if (response.body() != null) {
@@ -67,5 +75,35 @@ public class DetailActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.action_item1) {
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
+            return true;
+        }else if (item.getItemId() == R.id.action_item2) {
+            Intent intent = new Intent(getApplicationContext(), PredictActivity.class);
+            startActivity(intent);
+            return true;
+        }else if (item.getItemId() == R.id.action_item3) {
+            Intent intent = new Intent(getApplicationContext(), HistoryActivity.class);
+            startActivity(intent);
+            return true;
+        }else if (item.getItemId() == R.id.action_item4) {
+            SharedPreference sharedPreference = new SharedPreference(this);
+            sharedPreference.removeKeyToken();
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(intent);
+            return true;
+        }else {
+            return true;
+        }
     }
 }
