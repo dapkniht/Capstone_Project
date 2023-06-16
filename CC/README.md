@@ -1,8 +1,12 @@
 # Ready2Eat Backend
 
-## Tech Stack
+## Backend Stack
 - Node js
 - Express js
+- jsonwebtoken
+- Sequelize
+
+## Google Cloud Stack
 - Cloud Run
 - Google Cloud Storage
 - Cloud SQL
