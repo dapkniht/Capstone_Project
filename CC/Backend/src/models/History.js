@@ -1,24 +1,27 @@
 const { DataTypes } = require("sequelize");
 const db = require("../config/db");
 
-const Admin = db.define(
-  "admin",
+const History = db.define(
+  "history",
   {
     id: {
       type: DataTypes.STRING,
       primaryKey: true,
       allowNull: false,
     },
-    name: {
+    user_id: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    email: {
+    fruit: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
     },
-    password: {
+    predict: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    image: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -29,4 +32,4 @@ const Admin = db.define(
   }
 );
 
-module.exports = Admin;
+module.exports = History;

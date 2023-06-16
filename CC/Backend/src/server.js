@@ -9,8 +9,6 @@ const adminRoutes = require("./routes/adminRoutes");
 const swaggerUi = require("swagger-ui-express");
 const swaggerDocument = require("./middleware/swagger/swaggerDocument.js");
 
-console.log(process.env)
-
 const server = express();
 
 server.use(cors());
